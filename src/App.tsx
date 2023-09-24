@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+let counter = 0;
+
 function App() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState('');
+
+  const onSubmit = () => {
+    alert(
+      `Dispatch action and update first name: ${firstName}, last name: ${lastName}, age: ${age}`
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form onSubmit={onSubmit}>
+      <label>
+        First Name:
+        <input
+          name="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </label>
+      <label>
+        Last Name:
+        <input
+          name="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </label>
+      <label>
+        Age:
+        <input
+          name="age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </label>
+      <div className="label">{`Render count: ${counter++}`}</div>
+      <button>Submit</button>
+    </form>
   );
 }
 
