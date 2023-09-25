@@ -6,7 +6,7 @@ form {
 }
 
 label {
-  margin-bottom: 16px;
+  margin-bottom: 4px;
 }
 
 button {
@@ -16,6 +16,11 @@ button {
 
 input {
   margin-left: 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  color: red;
 }
 
 .label {
